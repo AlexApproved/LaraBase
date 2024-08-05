@@ -1,22 +1,61 @@
-### Building and running your application
+## Docker Setup
 
-When you're ready, start your application by running:
-`docker compose up --build`.
+This project uses Docker and Docker Compose to manage the development environment.
 
-Your application will be available at http://localhost:9000.
+### Installation Guide
 
-### PHP extensions
-If your application requires specific PHP extensions to run, they will need to be added to the Dockerfile. Follow the instructions and example in the Dockerfile to add them.
+1. **Install Docker**:
+    - Follow the instructions on the [Docker website](https://docs.docker.com/get-docker/) to install Docker for your operating system.
 
-### Deploying your application to the cloud
+2. **Install Docker Compose**:
+    - Docker Compose is included with Docker Desktop for Windows and macOS. For Linux, follow the instructions on the [Docker Compose installation page](https://docs.docker.com/compose/install/).
 
-First, build your image, e.g.: `docker build -t myapp .`.
-If your cloud uses a different CPU architecture than your development
-machine (e.g., you are on a Mac M1 and your cloud provider is amd64),
-you'll want to build the image for that platform, e.g.:
-`docker build --platform=linux/amd64 -t myapp .`.
+### Common Docker Commands
 
-Then, push it to your registry, e.g. `docker push myregistry.com/myapp`.
+- **Build containers**:
+    ```sh
+      docker-compose build --no-cache --force-rm
+    ```
 
-Consult Docker's [getting started](https://docs.docker.com/go/get-started-sharing/)
-docs for more detail on building and pushing.
+- **Start containers**:
+    ```sh
+    docker-compose up --detach
+    ```
+
+- **Stop containers**:
+    ```sh
+    docker-compose stop
+    ```
+
+- **Remove containers**:
+    ```sh
+    docker-compose down
+    ```
+
+- **connect to container**:
+    ```sh
+    docker exec -it laravel-app bash
+    ```
+
+- **Execute commands in the app container**:
+    ```sh
+    docker-compose exec <container> <command>
+    ```
+
+- **View running containers**:
+    ```sh
+    docker ps
+    ```
+
+- **View logs**:
+    ```sh
+    docker-compose logs
+    ```
+
+### Common Issues
+
+- **Container not starting**:
+    - Ensure Docker is running.
+    - Check the logs for errors using `docker-compose logs`.
+
+For more details on Docker usage, refer to the [official documentation](https://docs.docker.com/).
