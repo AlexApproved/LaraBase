@@ -1,61 +1,82 @@
+# Docker Overview
+
 ## Docker Setup
 
 This project uses Docker and Docker Compose to manage the development environment.
 
-### Installation Guide
 
-1. **Install Docker**:
-    - Follow the instructions on the [Docker website](https://docs.docker.com/get-docker/) to install Docker for your operating system.
+<br>
 
-2. **Install Docker Compose**:
-    - Docker Compose is included with Docker Desktop for Windows and macOS. For Linux, follow the instructions on the [Docker Compose installation page](https://docs.docker.com/compose/install/).
+## Installation Guide
 
-### Common Docker Commands
+### **Install Docker**
+Follow the instructions on the [Docker website](https://docs.docker.com/get-docker/) to install Docker for your operating system.
 
-- **Build containers**:
-    ```sh
-      docker-compose build --no-cache --force-rm
-    ```
+### **Install Docker Compose**
+Docker Compose is included with Docker Desktop for Windows and macOS. For Linux, follow the instructions on the [Docker Compose installation page](https://docs.docker.com/compose/install/).
 
-- **Start containers**:
-    ```sh
-    docker-compose up --detach
-    ```
+<br>
 
-- **Stop containers**:
-    ```sh
-    docker-compose stop
-    ```
+## Commands: Managing Containers and Images
 
-- **Remove containers**:
-    ```sh
-    docker-compose down
-    ```
+### **View all containers**
+```sh
+docker ps -a -q
+```
 
-- **connect to container**:
-    ```sh
-    docker exec -it laravel-app bash
-    ```
+### **Clean all containers**
+Removes all existing Docker Containers globally
+```sh
+docker container rm -f $(docker container ls -a -q)
+```
 
-- **Execute commands in the app container**:
-    ```sh
-    docker-compose exec <container> <command>
-    ```
+### **View all images**
+```sh
+docker images -a -q
+```
 
-- **View running containers**:
-    ```sh
-    docker ps
-    ```
+### **Clean all images**
+Removes all existing Docker Images globally
 
-- **View logs**:
-    ```sh
-    docker-compose logs
-    ```
+```sh
+docker image rm -f $(docker image ls -a -q)
+```
 
-### Common Issues
+<br>
 
-- **Container not starting**:
-    - Ensure Docker is running.
-    - Check the logs for errors using `docker-compose logs`.
+## Commands: Building and Running Environment
 
-For more details on Docker usage, refer to the [official documentation](https://docs.docker.com/).
+### **Build New Environment**
+This will cleanly build all Containers and Images and
+```sh
+docker-compose build --no-cache --force-rm
+```
+
+### **Run Environment**
+This will cleanly build all Containers and Images and
+```sh
+docker-compose up -d
+```
+
+### **Shut Down and Save Containers**
+This will cleanly build all Containers and Images and
+```sh
+docker-compose stop
+```
+
+### **Shut Down Containers**
+This will cleanly build all Containers and Images and
+```sh
+docker-compose down
+```
+
+<br>
+
+## Commands: Connecting to Environment
+
+### **Connect to Container**
+```sh
+docker-compose exec <container> <command>
+```
+
+<br>
