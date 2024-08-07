@@ -72,6 +72,14 @@ For future startups, simply run:
 - **Password**: `data`
 - **Database**: `data`
 
+### Database
+- **Driver**: `MySQL`
+- **Host**: `localhost`
+- **Port**: `3306`
+- **Username**: `data`
+- **Password**: `data`
+- **Database**: `data`
+
 ## Essential Docker Commands
 Here are some basic Docker Compose commands for managing your environment:
 - **Build or rebuild services**:
@@ -146,6 +154,9 @@ Use these Laravel Artisan commands for common tasks:
     php artisan auth:clear-resets
     ```
 
----
+## Credits
 
-This version maintains the same information but presents it with varied text and structure for better differentiation.
+This project was inspired by and uses code from the following repositories:
+
+- [laravel](https://github.com/laravel/laravel) by [laravel](https://github.com/laravel)
+- [laravel-docker](https://github.com/refactorian/laravel-docker) by [refactorian](https://github.com/refactorian)
