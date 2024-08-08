@@ -78,33 +78,6 @@ For future startups, simply run:
 - **Password**: `data`
 - **Database**: `data`
 
-## Essential Docker Commands
-Here are some basic Docker Compose commands for managing your environment:
-- **Build or rebuild services**:
-    ```bash
-    docker compose build
-    ```
-- **Start and run containers**:
-    ```bash
-    docker compose up -d
-    ```
-- **Stop and remove containers, networks, etc.**:
-    ```bash
-    docker compose down
-    ```
-- **Stop all running services**:
-    ```bash
-    docker compose stop
-    ```
-- **Restart specific services**:
-    ```bash
-    docker compose restart
-    ```
-- **Execute a command inside a running container**:
-    ```bash
-    docker compose exec [container] [command]
-    ```
-
 ## Handy Laravel Commands
 Use these Laravel Artisan commands for common tasks:
 - **Show basic information about the app**:
