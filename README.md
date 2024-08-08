@@ -1,4 +1,3 @@
-
 <p align="center">
     <a href="https://laravel.com" target="_blank">
         <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo">
@@ -36,18 +35,17 @@ Follow these steps the first time you set up the project:
     ```bash
     docker compose exec phpmyadmin chmod 777 /sessions
     ```
-3. Access the PHP container:
+
+3. Modify ownership and permissions for the necessary directories:
     ```bash
-    docker compose exec php bash
+    docker compose exec php chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
     ```
-4. Modify ownership and permissions for the necessary directories:
     ```bash
-    chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
-    chmod -R 775 /var/www/storage /var/www/bootstrap/cache
+    docker compose exec php chmod -R 775 /var/www/storage /var/www/bootstrap/cache
     ```
-5. Complete the Laravel setup:
+4. Complete the Laravel setup:
     ```bash
-    composer setup
+    docker compose exec php composer setup
     ```
 
 ### Subsequent Starts
@@ -153,6 +151,13 @@ Use these Laravel Artisan commands for common tasks:
     ```bash
     php artisan auth:clear-resets
     ```
+
+## Todo
+
+- **Improve Runtime Performance**: https://stackoverflow.com/questions/63036490/docker-is-extremely-slow-when-running-laravel-on-nginx-container-wsl2
+- **xdebug**
+- **composer installation**: Are all lines really needed?
+
 
 ## Credits
 
