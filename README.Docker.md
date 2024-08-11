@@ -42,6 +42,25 @@ Removes all existing Docker Images globally
 docker image rm -f $(docker image ls -a -q)
 ```
 
+### **View all volumes**
+```sh
+docker volume -q
+```
+
+### **Clean all volumes**
+Removes all existing Docker volumes globally
+
+```sh
+docker volume  rm -f $(docker volume ls -q)
+```
+
+### **Clean everything**
+Removes every unused docker object
+
+```sh
+docker system prune --volumes
+```
+
 <br>
 
 ## Commands: Building and Running Environment
